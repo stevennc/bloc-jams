@@ -29,6 +29,22 @@ var albumMarconi = {
     ]
 };
 
+// My Album
+var albumTakk = {
+    title: 'Takk',
+    artist: 'Sigur Ros',
+    label: 'EMI/Geffen(US)',
+    year: '2005',
+    albumArtUrl: 'assets/images/album_covers/12.png',
+    songs: [
+        { title: 'Takk...', duration: '1:01' },
+        { title: 'Glosoli', duration: '5:01' },
+        { title: 'Hoppipolla', duration: '3:21'},
+        { title: 'Meo blodnasir', duration: '3:14' },
+        { title: 'Saeglopur', duration: '2:15'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -41,12 +57,10 @@ var createSongRow = function(songNumber, songName, songLength) {
      return template;
  };
 
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+
  var setCurrentAlbum = function(album) {
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
 
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
@@ -62,4 +76,14 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+
+    var albums = [albumPicasso, albumMarconi, albumTakk]
+    var index = 1;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index == albums.length) {
+            index = 0;
+        }
+    });
 };
