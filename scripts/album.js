@@ -79,14 +79,24 @@ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 };
 
 var findParentByClassName = function(element, targetClass) {
-    if (element) {
+if (element) {
+    if (element.parentElement !== null)
         var currentParent = element.parentElement;
         while (currentParent.className !== targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
         }
         return currentParent;
+    } else {
+      // if (element.parentElement !== targetClass) {
+      //     console.log("No parent found with that class name");
+      // } else {
+          console.log("No parent found");
     }
 };
+
+// if (targetClass.target !== element && !element.contains(targetClass.target)) {
+//     console.log("No parent found");
+// } else
 
 var getSongItem = function(element) {
     switch (element.className) {
