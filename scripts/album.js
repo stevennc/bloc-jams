@@ -165,7 +165,6 @@ $(document).ready(function() {
     $nextButton.click(nextSong);
 });
 
-
     // var albums = [albumPicasso, albumMarconi, albumTakk]
     // var index = 1;
     // albumImage.addEventListener("click", function(event) {
