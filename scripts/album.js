@@ -189,14 +189,38 @@ var currentSongFromAlbum = null;
 var currentSoundFile = null;
 var currentVolume = 80;
 
+
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+
+var $playButton = $('.main-controls .play-pause');
 
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    $playButton.click(togglePlayFromPlayerBar);
 });
+
+
+
+var togglePlayFromPlayerBar = function() {
+
+      if (currentlyPlayingSongNumber !== null) {
+          var currentlyPlayingCell = getSongNumber(currentlyPlayingSongNumber);
+          currentlyPlayingCell.html(currentlyPlayingSongNumber);
+      }
+      if (currentSoundFile && currentSoundFile.isPaused()) {
+          currentlyPlayingCell.html(pauseButtonTemplate);
+          $(this).html(playerBarPauseButton);
+          currentSoundFile.play();
+      } else if (currentSoundFile) {
+          currentlyPlayingCell.html(playButtonTemplate);
+          $(this).html(playerBarPlayButton);
+          currentSoundFile.pause();
+      }
+};
+
 
     // var albums = [albumPicasso, albumMarconi, albumTakk]
     // var index = 1;
