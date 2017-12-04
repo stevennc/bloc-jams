@@ -1,45 +1,103 @@
-.player-bar {
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     height: 200px;
-     background-color: rgba(255, 255, 255, 0.3);
-     z-index: 100;
- }
+body.album {
+    background-image: url(../assets/images/blurred_backgrounds/blur_bg_3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    padding-bottom: 200px;
+}
 
- .player-bar a,
- .player-bar a:hover {
-     color: white;
+.album-cover-art {
+    position: relative;
+    left: 20%;
+    margin-top: 1rem;
+    width: 60%;
+}
+
+.album-view-details {
+    position: relative;
+    top: 1.5rem;
+    padding: 1rem;
+}
+
+.album-view-details .album-view-title {
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.album-view-details .album-view-artist {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.album-view-details .album-view-release-info {
+    font-weight: 300;
+    font-size: 0.75rem;
+}
+
+.album-view-song-list {
+    width: 90%;
+    margin: 1.5rem auto;
+    font-weight: 300;
+    font-size: 0.75em;
+    border-collapse: collapse;
+}
+
+.album-view-song-item {
+    height: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.song-item-number {
+    width: 5%;
+}
+
+.song-item-title {
+    width: 85%;
+}
+
+.song-item-duration {
+    width: 5%;
+    min-width: 30px;
+}
+
+
+.album-song-button {
+    text-align: center;
+    font-size: 14px;
+    background-color: white;
+    color: rgb(210, 40, 123);
+    border-radius: 50% 50%;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+ .album-song-button:hover {
      cursor: pointer;
-     text-decoration: none;
+     color: white;
+     background-color: rgb(210, 40, 123);
  }
 
- .player-bar .container {
-     display: table;
-     padding: 0;
-     width: 90%;
-     min-height: 100%;
+ .album-song-button span {
+     line-height: 28px;
  }
 
- .player-bar .control-group {
-     display: table-cell;
-     vertical-align: middle;
- }
+@media (max-width: 640px) and (min-width: 320px) {
+    .album-view-details {
+        text-align: center;
+    }
 
- .player-bar .main-controls {
-     width: 25%;
-     text-align: left;
-     padding-right: 1rem;
- }
+    .album-view-title {
+        margin-top: 0;
+    }
+}
 
- .player-bar .currently-playing {
-     width: 50%;
-     text-align: center;
-     position: relative;
- }
-
- .player-bar .volume {
-     width: 25%;
-     text-align: right;
- }
+@media (max-width: 1024px) and (min-width: 320px) {
+    .album-view-song-list {
+        position: relative;
+        top: 1rem;
+        width: 80%;
+        margin: auto;
+    }
+}
